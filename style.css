@@ -1,0 +1,235 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Carousel Container */
+.carousel {
+    position: relative;
+    z-index: 1;
+}
+
+.carousel-inner img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Overlay Content */
+/* Main container that holds all content */
+.main-container {
+    position: absolute;  /* Position it over the carousel */
+    top: -10%;
+    left: 0;
+    gap: 100px;
+    width: 100%;
+    height: 110%;  /* Full viewport height */
+    display: flex;
+    flex-direction: column;  /* Stack the content vertically */
+    align-items: center;  /* Center horizontally */
+    justify-content: center;  /* Center vertically */
+    z-index: 2;  /* Ensure content appears above the carousel */
+    color: white;  /* Text color for readability */
+    overflow: hidden;
+    box-sizing: border-box; /* Include padding/border in dimensions */
+}
+
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place behind the content */
+    pointer-events: none; /* Prevent interference with clicking */
+    box-sizing: border-box; /* Match parent's box-sizing */
+}
+
+
+/* Content section for organizing the inner elements */
+#content {
+    z-index: 2;
+    width: 80%;  /* Ensure content doesn't stretch full width */
+    max-width: 900px;  /* Limit the max width */
+    display: flex;
+    flex-direction: column;  /* Stack the items vertically */
+    justify-content: center;
+    align-items: center;
+    gap: 50px;  /* Space between each section */
+}
+
+/* Result 1 section, with side-by-side alignment and additional styles */
+#result1 {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+    justify-content: space-between;  /* Space between elements */
+    width: 100%;
+    max-width: 800px;  /* Control max width */
+    gap: 20px;  /* Adjust spacing between items */
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;  /* For fallback centering */
+}
+.place{
+    font-size: 30px;
+}
+.mood{
+    font-size: 30px;
+}
+
+/* Input Field at the Top */
+.input {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.input input {
+    position: fixed;
+    top: 10%;
+    width: 80%;
+    max-width: 500px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    background: transparent;
+    color: white; /* Ensures text inside the input is visible */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.input input:focus {
+    box-shadow: 0 0 15px white;
+    border-color: white; /* Highlights border on focus */
+    outline: none;
+    transform: scale(1.05);
+}
+
+.input input::placeholder {
+    color: white; /* Placeholder text color */
+    opacity: 0.8; /* Slight transparency for placeholder */
+}
+#degree-value {
+    font-weight: bold;
+    font-size: 90px;
+    position: relative; /* Ensure it can be positioned relative to its original position */
+    left: -40px; /* Move it 20px to the left (adjust the value as needed) */
+}
+#result2 {
+    width: 80%;
+    height: auto;
+  
+}
+
+/* Additional content within result2, displayed in a row */
+.additional-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Styling for each individual item inside the additional content */
+.add-items {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.add-items h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-items p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Divider line between add-items, except the last one */
+.add-items:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #ddd;
+}
+.fa-solid{
+    margin-right: 10px;
+}
+@media screen and (max-width: 480px) {
+    /* Carousel images */
+    .carousel-inner img {
+        height: 100vh; /* Adjust height for smaller screens */
+    }
+
+  
+
+    /* Input field */
+    .input input {
+        top: 4%;
+        width: 90%;  /* Make input field take more space on smaller screens */
+        max-width: 350px;
+    }
+
+    /* Content area */
+    #content {
+        width: 100%;
+        gap: 10px;
+    }
+    .place{
+        font-size: 20px;
+    }
+    .mood{
+        font-size: 20px;
+    }
+    #result1 {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px; /* Adjust spacing for smaller screens */
+    }
+
+    #degree-value {
+    font-size: 70px;
+    left: 0px; /* Move it 20px to the left (adjust the value as needed) */
+    }
+    /* Weather results */
+    #result1, #result2 {
+        width: 90%;
+        padding: 10px;
+    }
+    .additional-content {
+        flex-direction: column;
+    }
+    .add-items:not(:last-child)::after{
+        display: none;
+    }
+
+    /* Adjust font sizes */
+    .add-items h1 {
+        font-size: 18px; /* Reduced font size for smaller screens */
+    }
+
+    .add-items p {
+        font-size: 16px; /* Adjusted for mobile readability */
+    }
+}
