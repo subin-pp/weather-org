@@ -1,4 +1,4 @@
-/* General Reset */
+
 body, html {
     margin: 0;
     padding: 0;
@@ -18,23 +18,22 @@ body, html {
     object-fit: cover;
 }
 
-/* Overlay Content */
-/* Main container that holds all content */
+
 .main-container {
-    position: absolute;  /* Position it over the carousel */
+    position: absolute;  
     top: -10%;
     left: 0;
     gap: 100px;
     width: 100%;
-    height: 110%;  /* Full viewport height */
+    height: 110%;  
     display: flex;
-    flex-direction: column;  /* Stack the content vertically */
-    align-items: center;  /* Center horizontally */
-    justify-content: center;  /* Center vertically */
-    z-index: 2;  /* Ensure content appears above the carousel */
-    color: white;  /* Text color for readability */
+    flex-direction: column;  
+    align-items: center;
+    justify-content: center; 
+    z-index: 2;  
+    color: white; 
     overflow: hidden;
-    box-sizing: border-box; /* Include padding/border in dimensions */
+    box-sizing: border-box; 
 }
 
 .main-container::before {
@@ -44,45 +43,87 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    z-index: -1; /* Place behind the content */
-    pointer-events: none; /* Prevent interference with clicking */
-    box-sizing: border-box; /* Match parent's box-sizing */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1;
+    pointer-events: none; 
+    box-sizing: border-box; 
 }
 
 
-/* Content section for organizing the inner elements */
 #content {
     z-index: 2;
-    width: 80%;  /* Ensure content doesn't stretch full width */
-    max-width: 900px;  /* Limit the max width */
+    width: 80%;  
+    max-width: 900px; 
     display: flex;
-    flex-direction: column;  /* Stack the items vertically */
+    flex-direction: column;  
     justify-content: center;
     align-items: center;
-    gap: 50px;  /* Space between each section */
+    gap: 50px;  
 }
 
-/* Result 1 section, with side-by-side alignment and additional styles */
-#result1 {
+
+.weather-info-container {
     display: flex;
-    align-items: center;  /* Align items vertically */
-    justify-content: space-between;  /* Space between elements */
+    align-items: center;
+    justify-content: space-between; 
+    flex-wrap: wrap; 
     width: 100%;
-    max-width: 800px;  /* Control max width */
-    gap: 20px;  /* Adjust spacing between items */
+    gap: 100px;
     padding: 20px;
-    border-radius: 10px;
-    margin: auto;  /* For fallback centering */
-}
-.place{
-    font-size: 30px;
-}
-.mood{
-    font-size: 30px;
-}
+    border-radius: 15px; 
+    margin: 20px auto;
+    color: #fff; 
+  }
+  
 
-/* Input Field at the Top */
+  .date-place {
+    flex: 1; 
+    text-align: center;
+  }
+  
+  .place {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+ 
+  .temperature {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .degree {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffcc00; 
+  }
+  
+
+  .mood {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .weather-condition {
+    font-size: 24px;
+    font-weight: bold;
+    color: #87ceeb; 
+  }
+  
+
+  @media (max-width: 768px) {
+    .weather-info-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .place, .degree, .weather-condition {
+      font-size: 20px; 
+    }
+  }
+  
+
+
 .input {
     z-index: 2;
     width: 100%;
@@ -109,20 +150,19 @@ body, html {
 
 .input input:focus {
     box-shadow: 0 0 15px white;
-    border-color: white; /* Highlights border on focus */
+    border-color: white; 
     outline: none;
     transform: scale(1.05);
 }
 
 .input input::placeholder {
-    color: white; /* Placeholder text color */
-    opacity: 0.8; /* Slight transparency for placeholder */
+    color: white; 
+    opacity: 0.8;
 }
 #degree-value {
     font-weight: bold;
     font-size: 90px;
-    position: relative; /* Ensure it can be positioned relative to its original position */
-    left: -40px; /* Move it 20px to the left (adjust the value as needed) */
+    position: relative; 
 }
 #result2 {
     width: 80%;
@@ -130,7 +170,7 @@ body, html {
   
 }
 
-/* Additional content within result2, displayed in a row */
+
 .additional-content {
     padding: 25px;
     display: flex;
@@ -146,7 +186,6 @@ body, html {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-/* Styling for each individual item inside the additional content */
 .add-items {
     text-align: center;
     flex: 1;
@@ -164,7 +203,6 @@ body, html {
     font-weight: bold;
 }
 
-/* Divider line between add-items, except the last one */
 .add-items:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -178,21 +216,18 @@ body, html {
     margin-right: 10px;
 }
 @media screen and (max-width: 480px) {
-    /* Carousel images */
     .carousel-inner img {
-        height: 100vh; /* Adjust height for smaller screens */
+        height: 100vh; /
     }
 
   
 
-    /* Input field */
     .input input {
         top: 4%;
-        width: 90%;  /* Make input field take more space on smaller screens */
+        width: 90%; 
         max-width: 350px;
     }
 
-    /* Content area */
     #content {
         width: 100%;
         gap: 10px;
@@ -204,15 +239,14 @@ body, html {
         font-size: 20px;
     }
     #result1 {
-        flex-direction: column; /* Stack items vertically */
-        gap: 10px; /* Adjust spacing for smaller screens */
+        flex-direction: column; 
+        gap: 10px;
     }
 
     #degree-value {
     font-size: 70px;
-    left: 0px; /* Move it 20px to the left (adjust the value as needed) */
+    left: 0px; 
     }
-    /* Weather results */
     #result1, #result2 {
         width: 90%;
         padding: 10px;
@@ -224,12 +258,11 @@ body, html {
         display: none;
     }
 
-    /* Adjust font sizes */
     .add-items h1 {
-        font-size: 18px; /* Reduced font size for smaller screens */
+        font-size: 18px;
     }
 
     .add-items p {
-        font-size: 16px; /* Adjusted for mobile readability */
+        font-size: 16px;
     }
 }

@@ -13,18 +13,22 @@ const countryStatus = async () => {
 
             result1.innerHTML = `
                     <div class="date-place">
-                        <h4 class="place">
-                            <i class="fa-solid fa-location-dot"></i>
-                            ${WeatherDetails.name}, <span>${WeatherDetails.sys.country}</span>
-                        </h4>
-                    </div>
-                    <h1 class="degree">
-                        <span id="degree-value">${tempInFahrenheit}°F</span>
-                    </h1>
-                    <h4 class="mood">
-                        <i class="fa-solid fa-cloud"></i>
-                        ${WeatherDetails.weather[0].main}
+                    <h4 class="place">
+                    <i class="fa-solid fa-location-dot"></i> 
+                    <span class="location">${WeatherDetails.name}</span>
                     </h4>
+                </div>
+                <div class="temperature">
+                    <h1 class="degree">
+                    <span id="degree-value">${tempInFahrenheit}°F</span>
+                    </h1>
+                </div>
+                <div class="mood">
+                    <h4 class="weather-condition">
+                    <i class="fa-solid fa-cloud"></i> 
+                    <span class="condition">${WeatherDetails.weather[0].main}</span>
+                    </h4>
+                </div>
                 `;
 
                 result2.innerHTML = `
